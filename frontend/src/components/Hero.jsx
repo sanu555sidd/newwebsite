@@ -2,44 +2,49 @@ import deliveryImg from "../assets/aadmi.png";
 
 function Hero() {
   return (
-<section className="w-full min-h-screen bg-white relative flex flex-col items-center justify-start pt-16 ">
-      {/* Centered Text Content */}
-      <div className="text-center px-6 md:px-20 max-w-5xl z-10 space-y-6 mb-0">
+<section className="relative w-full min-h-screen flex flex-col items-center pt-44 pb-20">
 
-        <h1 className="text-4xl md:text-6xl  leading-tight text-gray-900">
-          India's Largest {" "}<span className="text-blue-700 font-extrabold nowrap">Gig & BC </span>{" "}
-      
-      <span className="text-blue-700 font-extrabold">Services</span> Network
-        </h1>
+  {/* Content Wrapper */}
+  <div className="relative z-10 text-center max-w-4xl px-6">
 
-        <p className="text-gray-500 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-          We provide innovative and scalable web and mobile application
-          solutions, developed with latest technologies and framework to improve
-          performance, guarantee system reliability, and business efficiency
-          across various digital platforms.
-        </p>
+    {/* Heading */}
+    <h1 className="text-3xl md:text-7xl font-semibold leading-tight text-gray-900">
+      India's Largest{" "}
+      <span className="text-[#085390] font-semibold">Gig & BC Services</span>{" "}
+      Network
+    </h1>
 
-        <div className="flex justify-center gap-4 flex-wrap">
-          <button className="bg-blue-700 hover:bg-blue-800 text-white px-7 py-3 rounded-lg font-medium flex items-center gap-2 transition-colors">
-            Find Job <span>➔</span>
-          </button>
-          <button className="border-2 border-blue-700 text-blue-700 hover:bg-blue-50 px-7 py-3 rounded-lg font-medium flex items-center gap-2 transition-colors">
-            Become BC Agent <span>⊕</span>
-          </button>
-        </div>
+    {/* Paragraph */}
+    <p className="mt-6 text-[#085390] text-base md:text-xl max-w-3xl mx-auto leading-relaxed">
+      We provide innovative and scalable web and mobile application
+      solutions, developed with latest technologies and framework to improve
+      performance, guarantee system reliability, and business efficiency
+      across various digital platforms.
+    </p>
 
-      </div>
+    {/* Buttons */}
+    <div className="mt-8 flex justify-center gap-5 flex-wrap">
+      <button className="bg-[#085390] hover:bg-[#063b6d] text-white px-14 py-3 rounded-md font-medium transition">
+        Find Job →
+      </button>
 
-      {/* Bottom-Left Image — absolutely positioned */}
-<div className="absolute bottom-0 left-0 w-56 md:w-72 lg:w-80 z-0 -translate-y-15">
-            <img
-          src={deliveryImg}
-          alt="Delivery Person"
-          className="w-full object-contain -scale-x-100"
-        />
-      </div>
+      <button className="border border-[#085390] text-[#085390] hover:bg-blue-50 px-8 py-3 rounded-md font-medium transition">
+        Become BC Agent ⊕
+      </button>
+    </div>
 
-    </section>
+  </div>
+
+  {/* Bottom Left Image */}
+ <div className="absolute bottom-6 left-20 w-[280px] md:w-[359px]">
+  <img
+    src={deliveryImg}
+    alt="Delivery Person"
+    className="w-full h-auto -scale-x-100"
+  />
+</div>
+
+</section>
   );
 }
 

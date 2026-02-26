@@ -3,22 +3,22 @@ import { MapPin } from "lucide-react";
 
 export default function ServicesArea() {
   return (
-    <section className="bg-gray-100 py-16 px-6">
+    <section className=" py-2 px-4 bg-white ">
       <div className="max-w-5xl mx-auto text-center">
 
         {/* Heading */}
-        <h2 className="text-3xl font-bold">
-          Our <span className="text-blue-600">Services Area</span>
+        <h2 className="text-4xl font-bold">
+          Our <span className="text-[#085390]">Services Area</span>
         </h2>
 
         {/* Map Container */}
-        <div className="relative mt-12 flex justify-center">
+        <div className="relative mt-8 flex justify-center">
 
           {/* Map Image */}
           <img
             src={mapImg}
             alt="India Map"
-            className="w-full max-w-md"
+            className="w-full max-w-2xl"
           />
 
           {/* Example Pins (Adjust positions if needed) */}

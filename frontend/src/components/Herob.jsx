@@ -4,47 +4,60 @@ import playStore from "../assets/playstore.png";
 
 function Herob() {
   return (
-    <section className="w-full min-h-screen bg-gradient-to-r from-gray-50 to-blue-50 relative overflow-hidden flex items-center">
+<section className="relative w-full min-h-screen flex items-start pt-28 overflow-hidden">
 
-      <div className="w-full max-w-7xl mx-auto px-8 grid md:grid-cols-2 items-center gap-10">
+  {/* Soft Background */}
+  <div className="absolute inset-0 bg-gradient-to-r from-gray-50 to-blue-50 -z-20"></div>
 
-        {/* LEFT CONTENT */}
-        <div className="space-y-8">
+  {/* Dots */}
+  <div
+    className="
+      absolute inset-0
+      bg-[radial-gradient(circle,#1e3a8a20_2px,transparent_2px)]
+      bg-[size:60px_60px]
+      -z-10
+    "
+  ></div>
 
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight text-gray-900">
-            India's Largest{" "}
-            <span className="text-red-500">Job Portal</span>{" "}
-            Network
-          </h1>
+  {/* MAIN CONTENT */}
+  <div className="relative z-10 w-full max-w-7xl mx-auto px-8 grid md:grid-cols-2 items-start">
 
-          <div className="flex gap-6 flex-wrap">
-            <img src={appStore} alt="App Store" className="h-14 cursor-pointer" />
-            <img src={playStore} alt="Play Store" className="h-14 cursor-pointer" />
-          </div>
+    {/* LEFT CONTENT */}
+    <div className="space-y-6 pt-26">
 
-        </div>
+      <h1 className="text-4xl md:text-6xl font-semibold leading-tight text-gray-900">
+        India's Largest{" "}
+        <span className="text-red-500">Job</span><br />
+        <span className="text-red-500 left-aligned">Portal</span>{" "}
+        Network
+      </h1>
 
-        {/* RIGHT CONTENT */}
-        <div className="relative flex justify-center">
-
-          {/* Phone */}
-          <img
-            src={mobile}
-            alt="Phone"
-            className="w-72 md:w-96 relative z-10"
-          />
-
-          {/* Floating Card Top */}
-          
-
-          {/* Floating Card Middle */}
-          
-
-        </div>
-
+      <div className="flex gap-6 pt-4">
+        <img
+          src={appStore}
+          alt="App Store"
+          className="h-14 hover:scale-105 transition"
+        />
+        <img
+          src={playStore}
+          alt="Play Store"
+          className="h-14 hover:scale-105 transition"
+        />
       </div>
 
-    </section>
+    </div>
+
+    {/* RIGHT CONTENT */}
+    <div className="relative flex justify-end">
+      <img
+        src={mobile}
+        alt="Phone"
+        className="w-72 md:w-[420px] drop-shadow-2xl"
+      />
+    </div>
+
+  </div>
+</section>
   );
 }
 

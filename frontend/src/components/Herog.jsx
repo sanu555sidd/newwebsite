@@ -19,15 +19,15 @@ export default function CaseStudies() {
   ];
 
   return (
-    <section className="bg-gray-100 py-16 px-6">
+    <section className=" pt-20 pb-22 px-8">
       <div className="max-w-6xl mx-auto">
 
         {/* Heading */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold">
-            Case <span className="text-blue-600">Studies</span>
+        <div className="text-center mb-22">
+          <h2 className="text-4xl font-bold">
+            Case <span className="text-[#085390]">Studies</span>
           </h2>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+          <p className="mt-12 text-[#656464] text-[20px] max-w-5xl mx-auto">
             We design bespoke digital solutions that combine creativity,
             technology, and strategy—every project reflecting our commitment
             to innovation, creating tangible impact and useful user
@@ -36,28 +36,27 @@ export default function CaseStudies() {
         </div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 ">
           {data.map((item) => (
             <div
               key={item.id}
-              className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300"
-            >
+                className="bg-white rounded-xl shadow-[0_10px_30px_#00000040] hover:shadow-[0_10px_30px_#00000050] transition duration-300 w-[550px] h-[527px] p-2"            >
               <img
                 src={item.img}
                 alt="case"
-                className="w-full h-64 object-cover"
+                className="w-full h-[300px] object-cover rounded-lg ]"
               />
 
               <div className="p-6">
-                <h3 className="text-2xl font-semibold text-blue-700">
+                <h3 className="text-2xl font-semibold text-[#085390] text-left">
                   {item.title}
                 </h3>
 
-                <p className="mt-4 text-gray-600 text-sm leading-relaxed">
+                <p className="mt-4 text-gray-600 text-sm leading-relaxed text-left">
                   {item.desc}
                 </p>
 
-                <div className="mt-6 flex items-center gap-2 text-blue-600 font-medium cursor-pointer hover:gap-3 transition-all">
+                <div className="mt-6 flex items-center gap-2 text-[#085390] font-medium cursor-pointer hover:gap-3 transition-all">
                   View Our Case Study
                   <ArrowRight size={18} />
                 </div>

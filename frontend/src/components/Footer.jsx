@@ -12,25 +12,23 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-100 pt-16">
+    <footer className="bg-white pt-16">
 
       {/* Top Section */}
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12">
+<div className="w-full pl-16 pr-8 grid md:grid-cols-3 gap-12">
+     <div>
+          <img src={logo} alt="Sroy Group" className="w-40 mb-6 " />
 
-        {/* Left Column */}
-        <div>
-          <img src={logo} alt="Sroy Group" className="w-40 mb-6 ml-12" />
-
-          <p className="text-gray-600 text-sm leading-relaxed">
+          <p className="text-gray-600 text-sm leading-relaxed text-left">
             Sroy Group stands for quality education & learning.
             We achieve this with assistance from our valued partners.
           </p>
 
-          <p className="text-red-500 mt-4 cursor-pointer hover:underline">
+          <p className="text-red-500 mt-4 cursor-pointer hover:underline text-left">
             Know more about us
           </p>
 
-          <p className="text-gray-600 text-sm mt-6">
+          <p className="text-gray-600 text-sm mt-6 text-left">
             Sroy Group student app is available on
           </p>
 
@@ -41,35 +39,52 @@ export default function Footer() {
         </div>
 
         {/* Middle Column */}
-        <div>
-          <h3 className="text-lg font-semibold mb-6 border-b-2 border-red-500 inline-block pb-1">
-            Resources
-          </h3>
+<div className="flex flex-col">
 
-          <div className="grid grid-cols-2 gap-6 text-sm text-gray-600 mt-6">
-            <ul className="space-y-3">
-              <li className="hover:text-black cursor-pointer">About Us</li>
-              <li className="hover:text-black cursor-pointer">Blog</li>
-              <li className="hover:text-black cursor-pointer">News</li>
-              <li className="hover:text-black cursor-pointer">Newspaper</li>
-              <li className="hover:text-black cursor-pointer">Career</li>
-              <li className="hover:text-black cursor-pointer">Partners</li>
-              <li className="hover:text-black cursor-pointer">Awards</li>
-              <li className="hover:text-black cursor-pointer">Our Team</li>
-            </ul>
+  <div style={{ display: "grid", gridTemplateColumns: "1fr 1px 1fr" }}>
+    <h3 className="text-lg font-bold mb-8 pb-2 border-b-2 border-red-500 w-fit">
+      Resources
+    </h3>
+    <div />
+    <div />
+  </div>
 
-            <ul className="space-y-3">
-              <li className="hover:text-black cursor-pointer">Activities</li>
-              <li className="hover:text-black cursor-pointer">Our Story</li>
-              <li className="hover:text-black cursor-pointer">Young Xperts</li>
-              <li className="hover:text-black cursor-pointer">Partner Register</li>
-              <li className="hover:text-black cursor-pointer">Contact Us</li>
-              <li className="hover:text-black cursor-pointer">Panellist</li>
-              <li className="hover:text-black cursor-pointer">Refer a Partner</li>
-            </ul>
-          </div>
-        </div>
+  <div style={{ display: "grid", gridTemplateColumns: "1fr 1px 1fr" }} className="text-sm text-gray-700">
 
+    {/* Left Column */}
+    <ul className="space-y-4 pr-8">
+      <li className="hover:text-black cursor-pointer">About Us</li>
+      <li className="hover:text-black cursor-pointer">Blog</li>
+      <li className="hover:text-black cursor-pointer">News</li>
+      <li className="hover:text-black cursor-pointer">Newspaper</li>
+      <li className="hover:text-black cursor-pointer">Career</li>
+      <li className="hover:text-black cursor-pointer">Partners</li>
+      <li className="hover:text-black cursor-pointer">Awards</li>
+      <li className="hover:text-black cursor-pointer">Our Team</li>
+    </ul>
+
+    {/* Dotted Vertical Divider */}
+    <div
+      style={{
+        borderLeft: "2px dashed #5bb8c4",
+        height: "100%",
+        width: "1px",
+      }}
+    />
+
+    {/* Right Column */}
+    <ul className="space-y-4 pl-8">
+      <li className="hover:text-black cursor-pointer">Activities</li>
+      <li className="hover:text-black cursor-pointer">Our Story</li>
+      <li className="hover:text-black cursor-pointer">Young Xperts</li>
+      <li className="hover:text-black cursor-pointer">Partner Register</li>
+      <li className="hover:text-black cursor-pointer">Contact Us</li>
+      <li className="hover:text-black cursor-pointer">Panellist</li>
+      <li className="hover:text-black cursor-pointer">Refer a Partner</li>
+    </ul>
+
+  </div>
+</div>
         {/* Right Column */}
         <div>
           <h3 className="text-lg font-semibold mb-6 border-b-2 border-red-500 inline-block pb-1">
@@ -95,8 +110,8 @@ export default function Footer() {
       </div>
 
       {/* Bottom Section */}
-      <div className="border-t mt-12 py-6 bg-blue-100">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600  gap-4">
+      <div className="border-t mt-12 py-6 bg-[#0853900A]">
+        <div className="w-full pl-16 pr-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600  gap-4">
 
           <p>© Copyright 2025 SROY GROUP. All rights reserved.</p>
 

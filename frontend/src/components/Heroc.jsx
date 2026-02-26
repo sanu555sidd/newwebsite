@@ -1,62 +1,103 @@
+import { useState } from "react";
+import { ChevronRight, ChevronLeft } from "lucide-react";
+
 import ca from '../assets/ca.png'
 import cbb from '../assets/cb.png'
 import ccc from '../assets/cc.png'
 import cdd from '../assets/cd.png'
 
+const cards = [
+  { id: 1, image: ca, title: "Bajaj General Insurance" },
+  { id: 2, image: cbb, title: "HDFC ERGO Insurance" },
+  { id: 3, image: ccc, title: "Royal Sundaram Insurance" },
+  { id: 4, image: cdd, title: "Cholamandalam Insurance" },
+  { id: 5, image: ca, title: "Bajaj General Insurance" },
+  { id: 6, image: cbb, title: "HDFC ERGO Insurance" },
+];
 
-function heroc(){
-    return (
-        <section className="w-full bg-gray-50 py-20">
+export default function Heroc() {
+  const [startIndex, setStartIndex] = useState(0);
+  const cardsPerView = 4;
+
+  const visibleCards = cards.slice(startIndex, startIndex + cardsPerView);
+
+  const handleNext = () => {
+    if (startIndex + cardsPerView < cards.length) {
+      setStartIndex(prev => prev + 1);
+    }
+  };
+
+  const handlePrev = () => {
+    if (startIndex > 0) {
+      setStartIndex(prev => prev - 1);
+    }
+  };
+
+  return (
+    <section className="w-full pt-26 pb-14 relative">
 
       {/* Heading */}
-      <div className="text-center mb-14">
-        <h2 className="text-4xl md:text-5xl font-bold">
-          <span className="text-gray-900">Our </span>
-          <span className="text-blue-600">Client</span>
+      <div className="text-center mb-6">
+        <h2 className="text-4xl md:text-4xl font-semibold">
+          <span className="text-[#333846]">Our </span>
+          <span className="text-[#085390]">Client</span>
         </h2>
-        <p className="text-gray-500 mt-4 text-lg">
+        <p className="text-[#6F727C] mt-8 text-xl">
           We're associated with India's popular insurance companies.
         </p>
       </div>
 
-      {/* Cards */}
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto px-6 relative">
 
-        {/* Card 1 */}
-        <div className="bg-white rounded-2xl shadow-md p-8 text-center hover:shadow-lg transition">
-          <img src={ca} alt="Bajaj" className="h-16 mx-auto object-contain" />
-          <p className="mt-6 text-gray-700 font-medium">
-            Bajaj General Insurance
-          </p>
-        </div>
+        {/* Left Arrow */}
+        {startIndex > 0 && (
+          <button
+            onClick={handlePrev}
+            className="absolute -left-4 top-1/2 -translate-y-1/2 bg-white shadow-md rounded-full p-3 hover:shadow-lg transition z-10"
+          >
+            <ChevronLeft size={22} />
+          </button>
+        )}
 
-        {/* Card 2 */}
-        <div className="bg-white rounded-2xl shadow-md p-8 text-center hover:shadow-lg transition">
-          <img src={cbb} alt="HDFC" className="h-16 mx-auto object-contain" />
-          <p className="mt-6 text-gray-700 font-medium">
-            HDFC ERGO Insurance
-          </p>
-        </div>
+        {/* Right Arrow */}
+        {startIndex + cardsPerView < cards.length && (
+          <button
+            onClick={handleNext}
+            className="absolute -right-4 top-1/2 -translate-y-1/2 bg-white shadow-md rounded-full p-3 hover:shadow-lg transition z-10"
+          >
+            <ChevronRight size={22} />
+          </button>
+        )}
 
-        {/* Card 3 */}
-        <div className="bg-white rounded-2xl shadow-md p-8 text-center hover:shadow-lg transition">
-          <img src={ccc} alt="Royal" className="h-16 mx-auto object-contain" />
-          <p className="mt-6 text-gray-700 font-medium">
-            Royal Sundaram Insurance
-          </p>
-        </div>
+        {/* Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {visibleCards.map((card) => (
+            <div
+  key={card.id}
+  className="bg-white rounded-xl shadow-md hover:shadow-lg transition p-2"
+>
 
-        {/* Card 4 */}
-        <div className="bg-white rounded-2xl shadow-md p-8 text-center hover:shadow-lg transition">
-          <img src={cdd} alt="Chola" className="h-16 mx-auto object-contain" />
-          <p className="mt-6 text-gray-700 font-medium">
-            Cholamandalam Insurance
-          </p>
+  {/* Gray Layer */}
+  <div className="bg-gray-100 py-6 flex items-center justify-center">
+
+    {/* Logo Box */}
+    <div className="bg-white rounded-md shadow-sm px-6 py-4 flex items-center justify-center">
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    className="h-12 object-contain"
+                  />
+                </div>
+              </div>
+
+              <h3 className="text-center py-5 text-base font-medium text-gray-700">
+                {card.title}
+              </h3>
+            </div>
+          ))}
         </div>
 
       </div>
-
     </section>
-    )
+  );
 }
-export default heroc;
