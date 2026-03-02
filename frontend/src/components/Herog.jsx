@@ -19,15 +19,16 @@ export default function CaseStudies() {
   ];
 
   return (
-    <section className=" pt-20 pb-22 px-8">
-      <div className="max-w-6xl mx-auto">
+    <section className="pt-20 pb-20 px-6">
+      <div className="max-w-[1286px] mx-auto">
 
         {/* Heading */}
-        <div className="text-center mb-22">
+        <div className="text-center mb-20">
           <h2 className="text-4xl font-bold">
             Case <span className="text-[#085390]">Studies</span>
           </h2>
-          <p className="mt-12 text-[#656464] text-[20px] max-w-5xl mx-auto">
+
+          <p className="mt-8 text-[#656464] text-[20px] max-w-4xl mx-auto">
             We design bespoke digital solutions that combine creativity,
             technology, and strategy—every project reflecting our commitment
             to innovation, creating tangible impact and useful user
@@ -35,16 +36,21 @@ export default function CaseStudies() {
           </p>
         </div>
 
-        {/* Cards */}
-        <div className="grid md:grid-cols-2 gap-8 ">
+        {/* Cards Grid */}
+        <div className="grid grid-cols-[623px_623px] gap-[40px] justify-center">
           {data.map((item) => (
             <div
               key={item.id}
-                className="bg-white rounded-xl shadow-[0_10px_30px_#00000040] hover:shadow-[0_10px_30px_#00000050] transition duration-300 w-[550px] h-[527px] p-2"            >
+              className="bg-white rounded-xl
+              shadow-[0_10px_30px_#00000040]
+              hover:shadow-[0_10px_30px_#00000050]
+              transition duration-300
+              w-[623px] h-[527px] p-[5px]"
+            >
               <img
                 src={item.img}
                 alt="case"
-                className="w-full h-[300px] object-cover rounded-lg ]"
+                className="w-[613px] h-[301px] object-cover rounded-lg"
               />
 
               <div className="p-6">

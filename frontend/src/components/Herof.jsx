@@ -1,9 +1,37 @@
 import personImg from "../assets/man.png";
 import { FileText } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { FileClock,Clock } from "lucide-react";
 
 export default function HowItWorks() {
   const [active, setActive] = useState(0);
+  const scrollRef = useRef(null);
+  const [thumbTop, setThumbTop] = useState(0);
+  const thumbHeight = 105;
+
+  const updateThumb = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const { scrollTop, scrollHeight, clientHeight } = el;
+    const height = Math.min(thumbHeight, clientHeight);
+    const maxTop = Math.max(0, clientHeight - height);
+    const top =
+      scrollHeight <= clientHeight
+        ? 0
+        : (scrollTop / (scrollHeight - clientHeight)) * maxTop;
+
+    setThumbTop(top);
+  };
+
+  useEffect(() => {
+    const frame = requestAnimationFrame(updateThumb);
+    window.addEventListener("resize", updateThumb);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("resize", updateThumb);
+    };
+  }, []);
 
   const steps = [
     { title: "Test", desc: "Test Test Test Test Test Test Test" },
@@ -17,39 +45,20 @@ export default function HowItWorks() {
   return (
     <section className="w-full pt-2 pb-8 px-6">
       <style>{`
-        .custom-scroll::-webkit-scrollbar {
-          width: 6px;
-        }
-        .custom-scroll::-webkit-scrollbar-track {
-          background: repeating-linear-gradient(
-            to bottom,
-            #9ca3af 0px,
-            #9ca3af 10px,
-            transparent 10px,
-            transparent 20px
-          );
-          border-radius: 0px;
-        }
-        .custom-scroll::-webkit-scrollbar-thumb {
-          background: #9ca3af;
-          border-radius: 999px;
-        }
-        .custom-scroll::-webkit-scrollbar-button {
-          display: block;
-          height: 8px;
-          background-color: #9ca3af;
-          border-radius: 999px;
-        }
         .custom-scroll {
-          scrollbar-width: thin;
-          scrollbar-color: #9ca3af transparent;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+        .custom-scroll::-webkit-scrollbar {
+          width: 0;
+          height: 0;
         }
       `}</style>
 
       {/* Heading */}
       <div className="text-center max-w-3xl mx-auto mb-16">
         <h2 className="text-4xl text-[#333846] font-semibold">How It Works</h2>
-        <p className="mt-4 text-[#444444">
+        <p className="mt-4 text-[#444444]">
           Our streamlined process ensures seamless collaboration and efficient
           delivery of services.From initial consultation to final implementation, we work closely with
         </p>
@@ -82,11 +91,31 @@ export default function HowItWorks() {
 
         {/* RIGHT SIDE — scrollbar on the left acts as the vertical divider */}
         <div className="pl-20 pr-6">
-        <div
-          className="relative max-h-[450px] overflow-y-scroll custom-scroll pl-12 pr-6"
-          style={{ direction: "rtl" }}
-        >
-          <div style={{ direction: "ltr" }}>
+          <div className="relative h-[450px]">
+            <div className="pointer-events-none absolute left-0 top-0 h-full w-[10px]">
+              <div
+                className="h-full w-[4px] rounded-full"
+                style={{
+                  background: `repeating-linear-gradient(
+                    to bottom,
+                    #d1d5db 0px,
+                    #d1d5db 116px,
+                    transparent 116px,
+                    transparent 146px
+                  )`,
+                }}
+              />
+              <div
+                className="absolute left-0 w-[4px] rounded-full bg-[#073b2f] transition-[top,height] duration-75"
+                style={{ top: `${thumbTop}px`, height: `${thumbHeight}px` }}
+              />
+            </div>
+
+            <div
+              ref={scrollRef}
+              onScroll={updateThumb}
+              className="h-full overflow-y-auto custom-scroll pl-12 pr-6"
+            >
             {steps.map((step, index) => (
               <div
                 key={index}
@@ -94,6 +123,7 @@ export default function HowItWorks() {
                 onClick={() => setActive(index)}
               >
                 {/* Icon */}
+{/* Icon */}
                 <div
                   className={`relative z-10 p-4 rounded-xl transition-all duration-300 flex-shrink-0
                     ${
@@ -105,7 +135,6 @@ export default function HowItWorks() {
                   <FileText size={24} />
                 </div>
                 
-
                 {/* Content */}
                 <div>
                   <h4 className="font-semibold text-lg text-gray-900">{step.title}</h4>
@@ -115,8 +144,8 @@ export default function HowItWorks() {
                 </div>
               </div>
             ))}
+            </div>
           </div>
-        </div>
         </div>
       </div>
     </section>

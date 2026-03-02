@@ -1,5 +1,5 @@
 import mapImg from "../assets/map.jpg"; // your india map image
-import { MapPin } from "lucide-react";
+import { FaMapMarkerAlt } from "react-icons/fa";
 
 export default function ServicesArea() {
   return (
@@ -22,18 +22,26 @@ export default function ServicesArea() {
           />
 
           {/* Example Pins (Adjust positions if needed) */}
-          <div className="absolute top-[30%] left-[55%] flex items-center gap-1">
-            <MapPin className="text-red-500" size={24} />
-            <span className="text-sm font-medium">Noida</span>
+          <div className="absolute top-[35%] left-[53%] flex items-center gap-1">
+            <FaMapMarkerAlt className="text-[#E6282F] h-8 w-8" />
+            <span className="text-sm font-medium ">Noida</span>
           </div>
 
-          <div className="absolute top-[45%] left-[35%] flex items-center gap-1">
-            <MapPin className="text-red-500" size={24} />
+         <div className="absolute top-[45%] left-[35%] flex items-center gap-1">
+  <FaMapMarkerAlt className="text-[#E6282F] h-8 w-8" />
+  <span className="text-sm font-medium">Noida</span>
+</div>
+
+          <div className="absolute top-[65%] left-[40%] flex items-center gap-1">
+            <FaMapMarkerAlt className="text-[#E6282F] h-8 w-8" />
             <span className="text-sm font-medium">Noida</span>
           </div>
-
-          <div className="absolute top-[65%] left-[50%] flex items-center gap-1">
-            <MapPin className="text-red-500" size={24} />
+          <div className="absolute top-[75%] left-[43%] flex items-center gap-1">
+            <FaMapMarkerAlt className="text-[#E6282F] h-8 w-8" />
+            <span className="text-sm font-medium">Noida</span>
+          </div>
+          <div className="absolute top-[55%] left-[49%] flex items-center gap-1">
+            <FaMapMarkerAlt className="text-[#E6282F] h-8 w-8" />
             <span className="text-sm font-medium">Noida</span>
           </div>
 
