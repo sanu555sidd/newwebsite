@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 
-import ca from '../assets/ca.png'
-import cbb from '../assets/cb.png'
-import ccc from '../assets/cc.png'
-import cdd from '../assets/cd.png'
+import ca from "../assets/ca.png";
+import cbb from "../assets/cb.png";
+import ccc from "../assets/cc.png";
+import cdd from "../assets/cd.png";
 
 const cards = [
   { id: 1, image: ca, title: "Bajaj General Insurance" },
@@ -23,19 +23,35 @@ export default function Heroc() {
 
   const handleNext = () => {
     if (startIndex + cardsPerView < cards.length) {
-      setStartIndex(prev => prev + 1);
+      setStartIndex((prev) => prev + 1);
+    } else {
+      setStartIndex(0);
     }
   };
 
   const handlePrev = () => {
     if (startIndex > 0) {
-      setStartIndex(prev => prev - 1);
+      setStartIndex((prev) => prev - 1);
     }
   };
 
+  // AUTO SCROLL EVERY 3 SECONDS
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setStartIndex((prev) => {
+        if (prev + cardsPerView < cards.length) {
+          return prev + 1;
+        } else {
+          return 0;
+        }
+      });
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="w-full pt-26 pb-14 relative">
-
       {/* Heading */}
       <div className="text-center mb-6">
         <h2 className="text-4xl md:text-4xl font-semibold">
@@ -48,7 +64,6 @@ export default function Heroc() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative">
-
         {/* Left Arrow */}
         {startIndex > 0 && (
           <button
@@ -73,15 +88,13 @@ export default function Heroc() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {visibleCards.map((card) => (
             <div
-  key={card.id}
-  className="bg-white rounded-xl shadow-md hover:shadow-lg transition p-2"
->
-
-  {/* Gray Layer */}
-  <div className="bg-gray-100 py-6 flex items-center justify-center">
-
-    {/* Logo Box */}
-    <div className="bg-white rounded-md shadow-sm px-6 py-4 flex items-center justify-center">
+              key={card.id}
+              className="bg-white rounded-xl shadow-md hover:shadow-lg transition p-2"
+            >
+              {/* Gray Layer */}
+              <div className="bg-gray-100 py-6 flex items-center justify-center">
+                {/* Logo Box */}
+                <div className="bg-white rounded-md shadow-sm px-6 py-4 flex items-center justify-center">
                   <img
                     src={card.image}
                     alt={card.title}
@@ -96,7 +109,6 @@ export default function Heroc() {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

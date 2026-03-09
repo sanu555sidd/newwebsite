@@ -2,30 +2,25 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Herob from './components/Herob'
-import Heroc from './components/Heroc'
-import Herod from './components/Herod'
-import Heroe from './components/Heroe'
-import Herof from './components/Herof'
-import Herog from './components/Herog'
-import Heroh from './components/Heroh'
-import Footer from './components/Footer'
+import Navbar from './common/Navbar'
+import Footer from './common/Footer'
+import Home from './pages/Home'
+import Client from './pages/client'
+import Blog from './pages/Blog'
+import { BrowserRouter as Router, Routes,Route } from 'react-router-dom'
 
 function App() {
   return (
     <>
+    <Router>
       <Navbar />
-      <Hero />
-      <Herob />
-      <Heroc />
-      <Herod />
-      <Heroe />
-      <Herof />
-      <Herog />
-      <Heroh />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/client" element={<Client />} />
+        <Route path="/blog" element={<Blog />} />
+      </Routes>
       <Footer />
+    </Router>
     </>
   )
 }
