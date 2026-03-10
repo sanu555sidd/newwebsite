@@ -26,7 +26,7 @@ function Navbar() {
     Home
   </li>
   <li className="relative cursor-pointer after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-[#085390] after:transition-all after:duration-300 hover:after:w-full">
-    About Us
+    <Link to="/contact">About Us</Link>
   </li>
   <li className="relative cursor-pointer after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-[#085390] after:transition-all after:duration-300 hover:after:w-full">
     Offering

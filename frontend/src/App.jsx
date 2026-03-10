@@ -7,6 +7,7 @@ import Footer from './common/Footer'
 import Home from './pages/Home'
 import Client from './pages/client'
 import Blog from './pages/Blog'
+import Contact from './pages/Contact'
 import { BrowserRouter as Router, Routes,Route } from 'react-router-dom'
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/client" element={<Client />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </Router>
