@@ -1,6 +1,31 @@
+import { useEffect, useRef, useState } from 'react'
 import tab from '../assets/tab.png'
+import mobile from '../assets/mobile.png'
 
 function Services() {
+  const imageRowRef = useRef(null)
+  const [isImageRowVisible, setIsImageRowVisible] = useState(false)
+
+  useEffect(() => {
+    const currentRef = imageRowRef.current
+    if (!currentRef) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsImageRowVisible(true)
+          observer.unobserve(entry.target)
+        }
+      },
+      { threshold: 0.35 }
+    )
+
+    observer.observe(currentRef)
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
 
   const services = [
     { bg: "#FAF5CD" },
@@ -72,9 +97,32 @@ function Services() {
         ))}
 
       </div>
-      <div className="mt-20 flex justify-center">
-      <img src={tab} alt="Tab" className="w-[300px] md:w-[300px]" />
-        </div>
+      <div
+        ref={imageRowRef}
+        className="mt-20 flex justify-center items-end gap-6 overflow-hidden"
+      >
+
+  <img
+    src={mobile}
+    alt="Mobile"
+    className={`w-[240px] md:w-[260px] transition-all duration-2000 ease-out ${
+      isImageRowVisible
+        ? 'translate-x-0 opacity-100'
+        : '-translate-x-24 opacity-0'
+    }`}
+  />
+
+  <img
+    src={tab}
+    alt="Tab"
+    className={`w-[300px] md:w-[340px] transition-all duration-2000 ease-out ${
+      isImageRowVisible
+        ? 'translate-x-0 opacity-100'
+        : 'translate-x-24 opacity-0'
+    }`}
+  />
+
+</div>
     </section>
   );
 }

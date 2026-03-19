@@ -23,7 +23,7 @@ function Navbar() {
         {/* Middle - Nav Links */}
         <ul className="hidden md:flex gap-8 text-[#085390] font-medium text-lg">
   <li className="relative cursor-pointer after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-[#085390] after:transition-all after:duration-300 hover:after:w-full">
-    Home
+   <Link to="/"> Home</Link>
   </li>
   <li className="relative cursor-pointer after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-[#085390] after:transition-all after:duration-300 hover:after:w-full">
     <Link to="/contact">About Us</Link>
@@ -40,7 +40,7 @@ function Navbar() {
     <Link to="/blog">Blog</Link>
   </li>
    <li className="relative cursor-pointer after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-[#085390] after:transition-all after:duration-300 hover:after:w-full">
-    Career
+    <Link to="/career">Career</Link>
   </li>
 </ul>
         {/* Right - Contact Button */}

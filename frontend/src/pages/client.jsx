@@ -166,28 +166,35 @@ useEffect(() => {
 
    <div className="relative flex justify-center h-[520px]">
 
-  {/* circle */}
-  <div className="absolute bottom-[120px] w-[400px] h-[400px] border-[4px] border-[#085390] rounded-full"></div>
+  {/* THIN FULL BLUE CIRCLE */}
+  <div className="absolute bottom-[120px] w-[400px] h-[400px] rounded-full border-[2px] border-[#085390]/60"></div>
 
-  {/* person image */}
-  <img
-    src={item.image}
-    alt={item.name}
-    className="absolute bottom-[120px] w-[380px] h-[480px] object-cover object-top z-10"
-  />
+  {/* IMAGE CONTAINER (CLIPPED) */}
+  <div className="absolute bottom-[120px] w-[400px] h-[400px] rounded-full overflow-hidden flex justify-center items-end">
 
+    <img
+      src={item.image}
+      alt={item.name}
+      className="w-[300px] h-[420px] object-cover object-top"
+    />
 
+  </div>
 
+  {/* THICK ARC (LONGER + BOLD) */}
+  <div className="absolute bottom-[120px] w-[400px] h-[400px] rounded-full border-[8px] border-[#085390] border-t-transparent border-l-transparent border-r-transparent z-20"></div>
 
-          {/* rating card */}
-          <div className="absolute top-[90px] left-[60px] bg-white shadow-md px-5 py-3 rounded-lg text-center">
-            <div className="text-[#085390] text-xl">★</div>
-            <p className="text-sm text-gray-500">4.7/5</p>
-            <p className="text-sm font-medium">Good Work!</p>
-          </div>
+  {/* RATING CARD */}
+  <div className="absolute top-[70px] left-[60px] bg-white shadow-md px-5 py-3 rounded-lg text-center z-30 w-[130px] h-[120px]">
 
-        </div>
+   <div className="w-8 h-8 mx-auto flex items-center justify-center bg-[#085390] text-white rounded-md ">
+  ★
+</div>
 
+    <p className="text-sm text-[#085390]">4.7/5</p>
+    <p className="text-sm font-medium">Good Work!</p>
+  </div>
+
+</div>
         <h3 className="mt-10 text-3xl font-semibold">
           {item.name}
         </h3>

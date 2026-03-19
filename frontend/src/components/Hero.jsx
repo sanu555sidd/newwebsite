@@ -2,7 +2,7 @@ import deliveryImg from "../assets/aadmi.png";
 
 function Hero() {
   return (
-<section className="relative w-full min-h-screen flex flex-col items-center pt-44 pb-20">
+<section className="relative w-full min-h-screen flex flex-col items-center pt-44 pb-20 font-urbanist ">
 
   {/* Content Wrapper */}
   <div className="relative z-10 text-center max-w-4xl px-6">
